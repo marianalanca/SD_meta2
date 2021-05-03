@@ -54,7 +54,7 @@ public class RegistarAction extends ActionSupport implements SessionAware {
 
     @Override
     public void setSession(Map<String, Object> map) {
-        this.session = session;
+        this.session = map;
     }
 
     //Otimizar para não aceitar valores vazios
