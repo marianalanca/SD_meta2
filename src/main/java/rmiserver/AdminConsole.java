@@ -1,3 +1,5 @@
+package rmiserver;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.rmi.*;
@@ -8,8 +10,7 @@ import java.util.Calendar;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.registry.LocateRegistry;
-
-public class AdminConsole extends UnicastRemoteObject implements AdminConsole_I{   
+public class AdminConsole extends UnicastRemoteObject implements AdminConsole_I{
 
     /**
      *

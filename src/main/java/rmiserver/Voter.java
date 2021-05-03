@@ -1,3 +1,5 @@
+package rmiserver;
+
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -130,5 +132,4 @@ public class Voter implements Serializable{
      * @param type the type
      */
     public void setType(Type type) { this.type = type; }
-
 }

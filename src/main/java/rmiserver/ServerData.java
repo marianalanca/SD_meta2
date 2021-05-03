@@ -1,3 +1,5 @@
+package rmiserver;
+
 import java.io.*;
 import java.rmi.*;
 import java.rmi.registry.LocateRegistry;

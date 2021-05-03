@@ -18,7 +18,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
         if(this.username != null && this.password != null && !username.equals("") && !password.equals("")) {
             // search for voter; compare pasword
 
-            this.getHeyBean().setUsername(this.username);
+            this.getHeyBean().setName(this.username);
             this.getHeyBean().setPassword(this.password);
             if (this.getHeyBean().getUserMatchesPassword()){
                 session.put("username", username);

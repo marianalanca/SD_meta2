@@ -1,4 +1,4 @@
-//package calculator;
+package rmiserver;//package calculator;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
