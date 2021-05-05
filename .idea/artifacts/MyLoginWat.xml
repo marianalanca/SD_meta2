@@ -7,7 +7,7 @@
           <element id="module-output" name="Hey" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="asm-commons-3.3" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Hey/web/Web" />
