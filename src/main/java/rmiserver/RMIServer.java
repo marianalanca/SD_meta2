@@ -23,7 +23,7 @@ import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-/*Por os restantes objects que podem ser passados */ 
+/*Por os restantes objects que podem ser passados */
 public class RMIServer extends UnicastRemoteObject implements RMIServer_I{
       /**
        * Const to use

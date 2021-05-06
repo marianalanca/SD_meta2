@@ -30,15 +30,15 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		}
 		return LOGIN;
 	}
-	
+
 	public void setUsername(String username) {
 		this.username = username; // will you sanitize this input? maybe use a prepared statement?
 	}
 
 	public void setPassword(String password) {
-		this.password = password; // what about this input? 
+		this.password = password; // what about this input?
 	}
-	
+
 	public LoginModel getModel() {
 		if(!session.containsKey("heyBean"))
 			this.setHeyBean(new LoginModel());
