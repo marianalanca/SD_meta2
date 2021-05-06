@@ -22,6 +22,9 @@ public class EleicaoBean extends RMIConnectBean {
 
     private String username;
     private String candidateName;
+
+
+
     private  String local;
 
     public EleicaoBean(){
@@ -33,7 +36,9 @@ public class EleicaoBean extends RMIConnectBean {
     }
 
 
-
+    public void setLocal(String local) {
+        this.local = local;
+    }
 
     public boolean voterVotes() throws RemoteException{
         return getRmiServer_i().voterVotes(username,title,candidateName,local);

@@ -20,6 +20,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
     private Type type = null;
 
 
+
     public String execute() throws RemoteException {
         if(username != null && department != null && contact != null && address != null && cc_number != null && cc_expiring != null && password != null && type != null){
             this.getRegisterBean().setUsername(username);

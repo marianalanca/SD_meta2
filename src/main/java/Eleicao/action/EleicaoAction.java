@@ -42,6 +42,7 @@ public class EleicaoAction extends ActionSupport implements SessionAware {
             getEleicaoBean().setBeggDate(beggDate);
             getEleicaoBean().setEndDate(endDate);
             getEleicaoBean().setAllowedVoters(allowedVoters);
+            getEleicaoBean().setLocal(local);
             if(getEleicaoBean().createElection()) {
                 session.put("title", title);
                 session.put("created", true);
