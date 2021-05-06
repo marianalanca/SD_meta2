@@ -9,7 +9,7 @@ import java.util.Map;
 import rmiserver.Type;
 import registar.model.RegisterBean;
 
-public class RegistarAction extends ActionSupport implements SessionAware {
+public class RegisterAction extends ActionSupport implements SessionAware {
     private Map<String, Object> session;
 
 
