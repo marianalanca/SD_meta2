@@ -6,6 +6,7 @@ import java.net.*;
 import java.io.*;
 import java.util.Scanner;
 import java.rmi.*;
+import protocol.Protocol;
 
 public class MulticastServer extends Thread implements Serializable {
     private static final long serialVersionUID = 1L;

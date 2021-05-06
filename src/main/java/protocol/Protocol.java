@@ -1,4 +1,4 @@
-package rmiserver;
+package protocol;
 
 import java.io.*;
 import java.util.List;

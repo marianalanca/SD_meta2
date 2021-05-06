@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.registry.LocateRegistry;
+
 public class AdminConsole extends UnicastRemoteObject implements AdminConsole_I{
 
     /**
@@ -23,7 +24,6 @@ public class AdminConsole extends UnicastRemoteObject implements AdminConsole_I{
 
     /**
      * Constructor AdminConsole
-     * @param rmi interface RMIServer
      * @throws RemoteException
      */
     private AdminConsole() throws RemoteException {
