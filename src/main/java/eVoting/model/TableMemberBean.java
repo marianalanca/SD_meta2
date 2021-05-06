@@ -10,7 +10,6 @@ import eVoting.rmiserver.MulticastServer;
 import eVoting.rmiserver.RMIServer_I;
 import eVoting.rmiserver.Voter;
 
-// public synchronized Voter searchUser(String username, String password) throws RemoteException
 public class TableMemberBean {
     private RMIServer_I server;
     private String dep, cc_number;
@@ -26,10 +25,6 @@ public class TableMemberBean {
         } catch (Exception e) {
             System.out.println("Something went Wrong");
         }
-    }
-
-    public List<Voter> getAllUsers() throws RemoteException {
-        return server.getVoterList(); // are you going to throw all exceptions?
     }
 
 

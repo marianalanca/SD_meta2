@@ -1,7 +1,6 @@
 package eVoting.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import freemarker.core.ReturnInstruction;
 import org.apache.struts2.interceptor.SessionAware;
 
 import java.rmi.ConnectException;
@@ -23,7 +22,6 @@ public class AddMemberTableAction extends ActionSupport implements SessionAware 
     public String execute() throws RemoteException {
         try {
             this.getModel().setDep(this.dep);
-            this.getModel().setCc_number(this.cc_number);
             this.table = this.getModel().searchTable(); // HERE
 
             if (table == null) {
