@@ -1,0 +1,21 @@
+.vertical-menu {
+    width: 500px;
+    margin-left: 50px;
+}
+
+.vertical-menu a{
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 10px;
+    text-decoration: none
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #04AA6D; /* Add a green color to the "active/current" link */
+    color: white;
+}
