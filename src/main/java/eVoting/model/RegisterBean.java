@@ -10,24 +10,35 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.ArrayList;
 
 public class RegisterBean {
     RMIServer_I rmiServer_i;
     private Map<String, Object> session;
 
 
-
-    public String username= null, department= null;
+    public String username= null, department= null, role = null;
     public String contact= null, address= null, cc_number= null;
     public Calendar cc_expiring = null;
     private String password = null;
     private Type type = null;
     private int port;
     private String addressRMI;
+    private List<RadioButtons> roles = new ArrayList<>();
 
     public RegisterBean(){
+
+        /*
+        if(this.roles != null){
+            System.out.println("oi oi oi");
+            this.roles.add(new RadioButtons("1", "Student"));
+            this.roles.add(new RadioButtons("2", "Docente"));
+            this.roles.add(new RadioButtons("3", "Funcionario"));
+        }*/
+
         try{
             Properties prop = new Properties();
             String fileName = "config.properties";
@@ -77,4 +88,10 @@ public class RegisterBean {
     public void setType(Type type) {
         this.type = type;
     }
+
+    public void setRoles(List<RadioButtons> roles){
+        this.roles = roles;
+    }
+
+    public List<RadioButtons> getRoles() { return this.roles; }
 }

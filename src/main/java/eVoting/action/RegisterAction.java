@@ -1,10 +1,13 @@
 package eVoting.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import eVoting.model.RadioButtons;
 import org.apache.struts2.interceptor.SessionAware;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 import eVoting.rmiserver.Type;
 import eVoting.model.RegisterBean;
@@ -18,10 +21,19 @@ public class RegisterAction extends ActionSupport implements SessionAware {
     public Calendar cc_expiring = null;
     private String password = null;
     private Type type = null;
+    private List<RadioButtons> roles = new  ArrayList<>();
 
 
 
     public String execute() throws RemoteException {
+
+        if(this.roles == null){
+            System.out.println("oi oi oi");
+            this.roles.add(new RadioButtons("1", "Student"));
+            this.roles.add(new RadioButtons("2", "Docente"));
+            this.roles.add(new RadioButtons("3", "Funcionario"));
+        }
+
         if(username != null && department != null && contact != null && address != null && cc_number != null && cc_expiring != null && password != null && type != null){
             this.getRegisterBean().setUsername(username);
             this.getRegisterBean().setPassword(password);
@@ -52,6 +64,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
     public void setRegisterBean(RegisterBean registerBean){
         this.session.put("registerBean",registerBean);
     }
+
 
     @Override
     public void setSession(Map<String, Object> map) {
@@ -90,4 +103,10 @@ public class RegisterAction extends ActionSupport implements SessionAware {
     public void setType(Type type) {
         this.type = type;
     }
+
+    public void setRoles(List<RadioButtons> roles){
+        this.roles = roles;
+    }
+
+    public List<RadioButtons> getRoles() {return this.roles;}
 }

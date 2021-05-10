@@ -11,7 +11,7 @@
     <h1><%= "Menu" %></h1>
 
     <div class="vertical-menu">
-        <a href="exit">0. Exit</a>
+        <a href="exit.jsp">0. Exit</a>
         <a href="registerVoter.jsp">1. Register voter </a>
         <a href="changeVoter.jsp">2. Change voter's data </a>
         <a href="createElection.jsp">3. Create election </a>

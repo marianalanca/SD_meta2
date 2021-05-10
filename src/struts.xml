@@ -26,21 +26,35 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 		<exception-mapping exception="java.lang.Exception" result="error" />
 	</global-exception-mappings>
 
-	<!-- 'index' eVoting.action leads to the view provided by index.jsp -->
     <action name="index">
       <result>/index.jsp</result>
     </action>
 
-	<!-- 'login' eVoting.action calls 'execute' in 'LoginAction' -->
     <action name="login" class="eVoting.action.LoginAction" method="execute">
-      <result name="success">/index.jsp</result>                  <!--Se retornar success, fez login e vai para a página do index-->
-      <result name="login">/error.jsp</result>                  <!--Se retornar login, repete-->
+      <result name="success">/index.jsp</result>
+      <result name="login">/error.jsp</result>
     </action>
 
     <action name="register" class="eVoting.action.RegisterAction" method="execute">
         <result name="success">/index.jsp</result>
         <result name="error">/error.jsp</result>
     </action>
+
+      <action name="changeVoter" class="eVoting.action.ChangeVoterAction" method="execute">
+          <result name="success">/index.jsp</result>
+          <result name="error">/error.jsp</result>
+      </action>
+
+      <action name="createElection" class="eVoting.action.EleicaoAction" method="execute">
+          <result name="success">/index.jsp</result>
+          <result name="error">/error.jsp</result>
+      </action>
+
+      <action name="changeElection" class="eVoting.action.ChangeElectionAction" method="execute">
+          <result name="success">/index.jsp</result>
+          <result name="error">/error.jsp</result>
+      </action>
+
 
   </package>
 
