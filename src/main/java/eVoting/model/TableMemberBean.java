@@ -11,22 +11,28 @@ import eVoting.rmiserver.RMIServer_I;
 import eVoting.rmiserver.Voter;
 
 public class TableMemberBean {
-    private RMIServer_I server;
+    private final RMIConnectBean server = new RMIConnectBean();
     private String dep, cc_number;
     private MulticastServer table;
     private Voter voter;
 
-    public TableMemberBean() {
-        try {
-            Properties prop = new Properties();
-            String fileName = "config.properties";
-            prop.load(new FileInputStream(fileName));
-            server = (RMIServer_I) LocateRegistry.getRegistry(prop.getProperty("ip"),Integer.parseInt(prop.getProperty("port"))).lookup("RMIServer");
-        } catch (Exception e) {
-            System.out.println("Something went Wrong");
-        }
+    public TableMemberBean() {}
+
+    public String getDep() {
+        return dep;
     }
 
+    public String getCc_number() {
+        return cc_number;
+    }
+
+    public MulticastServer getTable() {
+        return table;
+    }
+
+    public Voter getVoter() {
+        return voter;
+    }
 
     public void setVoter(Voter voter) {
         this.voter = voter;
@@ -45,22 +51,22 @@ public class TableMemberBean {
     }
 
     public MulticastServer searchTable() throws RemoteException {
-        return server.searchTableDept(dep);
+        return server.getRmiServer_i().searchTableDept(dep);
     }
 
     public List<Voter> getTableMembers() throws RemoteException {
-        return server.getRMITableMembers(dep);
+        return server.getRmiServer_i().getRMITableMembers(dep);
     }
 
     public Voter searchVoter() throws RemoteException {
-        return server.searchVoterCc(this.cc_number);
+        return server.getRmiServer_i().searchVoterCc(this.cc_number);
     }
 
     public Boolean addVoter() throws RemoteException {
-        return server.addVoterTable(this.table, this.voter);
+        return server.getRmiServer_i().addVoterTable(this.table, this.voter);
     }
 
     public Boolean removeVoter() throws RemoteException {
-        return server.removeVoterTable(this.table, this.voter);
+        return server.getRmiServer_i().removeVoterTable(this.table, this.voter);
     }
 }

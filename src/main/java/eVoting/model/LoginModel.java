@@ -10,27 +10,26 @@ import eVoting.rmiserver.Voter;
 
 // public synchronized Voter searchUser(String username, String password) throws RemoteException
 public class LoginModel {
-	private RMIServer_I server;
+	private final RMIConnectBean server = new RMIConnectBean();
 	private String username; // username and password supplied by the user
 	private String password;
 
-	public LoginModel() {
-		try {
-			Properties prop = new Properties();
-			String fileName = "config.properties";
-			prop.load(new FileInputStream(fileName));
-			server = (RMIServer_I) LocateRegistry.getRegistry(prop.getProperty("ip"),Integer.parseInt(prop.getProperty("port"))).lookup("RMIServer");
-		} catch (Exception e) {
-			System.out.println("Something went Wrong");
-		}
+	public LoginModel() {}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 	public List<Voter> getAllUsers() throws RemoteException {
-		return server.getVoterList(); // are you going to throw all exceptions?
+		return server.getRmiServer_i().getVoterList(); // are you going to throw all exceptions?
 	}
 
 	public boolean getUserMatchesPassword() throws RemoteException {
-		return server.searchUser(username, password) != null;
+		return server.getRmiServer_i().searchUser(username, password) != null;
 	}
 	
 	public void setUsername(String username) {

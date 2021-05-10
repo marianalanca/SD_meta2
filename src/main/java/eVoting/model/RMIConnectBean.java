@@ -13,8 +13,6 @@ public class RMIConnectBean {
 
     private Map<String, Object> session;
 
-
-
     RMIServer_I rmiServer_i;
     private int port;
     private String addressRMI;

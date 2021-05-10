@@ -14,37 +14,50 @@ import java.util.Map;
 import java.util.Properties;
 
 public class RegisterBean {
-    RMIServer_I rmiServer_i;
-    private Map<String, Object> session;
-
-
-
+    private final RMIConnectBean server = new RMIConnectBean();
     public String username= null, department= null;
     public String contact= null, address= null, cc_number= null;
     public Calendar cc_expiring = null;
     private String password = null;
     private Type type = null;
-    private int port;
-    private String addressRMI;
 
-    public RegisterBean(){
-        try{
-            Properties prop = new Properties();
-            String fileName = "config.properties";
-
-            prop.load(new FileInputStream(fileName));
-            this.port = Integer.parseInt(prop.getProperty("port"));
-            addressRMI = prop.getProperty("ip");
-            rmiServer_i = (RMIServer_I) LocateRegistry.getRegistry(addressRMI, this.port).lookup("RMIServer");
-        } catch (NotBoundException | IOException e) {
-            e.printStackTrace();
-        }
+    public String getUsername() {
+        return username;
     }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCc_number() {
+        return cc_number;
+    }
+
+    public Calendar getCc_expiring() {
+        return cc_expiring;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public RegisterBean(){}
 
     public boolean createVoter() throws RemoteException{
-        return this.rmiServer_i.createVoter(username, department,contact,address,cc_number,cc_expiring,password,type);
+        return this.server.getRmiServer_i().createVoter(username, department,contact,address,cc_number,cc_expiring,password,type);
     }
-
 
     public void setUsername(String username) {
         this.username = username;

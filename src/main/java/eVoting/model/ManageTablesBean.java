@@ -9,21 +9,28 @@ import java.util.Properties;
 import eVoting.rmiserver.*;
 
 public class ManageTablesBean {
-    private RMIServer_I server;
+    private final RMIConnectBean server = new RMIConnectBean();
     private String dep;
     private MulticastServer table;
     private Election election;
     private List<Election> elections;
 
-    public ManageTablesBean() {
-        try {
-            Properties prop = new Properties();
-            String fileName = "config.properties";
-            prop.load(new FileInputStream(fileName));
-            server = (RMIServer_I) LocateRegistry.getRegistry(prop.getProperty("ip"),Integer.parseInt(prop.getProperty("port"))).lookup("RMIServer");
-        } catch (Exception e) {
-            System.out.println("Something went Wrong");
-        }
+    public ManageTablesBean() {}
+
+    public String getDep() {
+        return dep;
+    }
+
+    public MulticastServer getTable() {
+        return table;
+    }
+
+    public List<Election> getElections() {
+        return elections;
+    }
+
+    public Election getElection() {
+        return election;
     }
 
     public void setDep(String dep) {
@@ -43,18 +50,18 @@ public class ManageTablesBean {
     }
 
     public MulticastServer searchTable() throws RemoteException {
-        return server.searchTableDept(this.dep);
+        return server.getRmiServer_i().searchTableDept(this.dep);
     }
 
     public List<Election> stateElections() throws RemoteException {
-        return server.stateElections(State.WAITING, null);
+        return server.getRmiServer_i().stateElections(State.WAITING, null);
     }
 
     public boolean addTableElection() throws RemoteException {
-        return server.addTableElection(table, election);
+        return server.getRmiServer_i().addTableElection(table, election);
     }
 
     public boolean removeTableElection() throws RemoteException {
-        return server.removeTableElection(table, election);
+        return server.getRmiServer_i().removeTableElection(table, election);
     }
 }

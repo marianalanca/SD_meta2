@@ -24,10 +24,45 @@ public class EleicaoBean extends RMIConnectBean {
         super();
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Calendar getBeggDate() {
+        return beggDate;
+    }
+
+    public Calendar getEndDate() {
+        return endDate;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public List<Type> getAllowedVoters() {
+        return allowedVoters;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getCandidateName() {
+        return candidateName;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
     public boolean createElection() throws RemoteException {
         return getRmiServer_i().createElection(title,description,beggDate,endDate,department,allowedVoters);
     }
-
 
     public void setLocal(String local) {
         this.local = local;
