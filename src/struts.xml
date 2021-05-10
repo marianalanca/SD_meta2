@@ -13,10 +13,10 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
   <constant name="struts.devMode" value="true" />
   <constant name="struts.ui.theme" value="simple" />
 
-  <package name="hey" extends="struts-default">
+  <package name="eVoting" extends="struts-default">
 	
 	<default-action-ref name="index" />
-	
+
 	<global-results>
 		<result name="error">/error.jsp</result>
 	</global-results>
@@ -26,16 +26,35 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 		<exception-mapping exception="java.lang.Exception" result="error" />
 	</global-exception-mappings>
 
-	<!-- 'index' eVoting.action leads to the view provided by index.jsp -->
     <action name="index">
       <result>/index.jsp</result>
     </action>
 
-	<!-- 'login' eVoting.action calls 'execute' in 'LoginAction' -->
-    <action name="login" class="hey.eVoting.action.LoginAction" method="execute">
-      <result name="success">/hey.jsp</result>                  <!--Se retornar success, fez login e vai para a página do index-->
-      <result name="login">/index.jsp</result>                  <!--Se retornar login, repete-->
+    <action name="login" class="eVoting.action.LoginAction" method="execute">
+      <result name="success">/index.jsp</result>
+      <result name="login">/error.jsp</result>
     </action>
+
+    <action name="register" class="eVoting.action.RegisterAction" method="execute">
+        <result name="success">/index.jsp</result>
+        <result name="error">/error.jsp</result>
+    </action>
+
+      <action name="changeVoter" class="eVoting.action.ChangeVoterAction" method="execute">
+          <result name="success">/index.jsp</result>
+          <result name="error">/error.jsp</result>
+      </action>
+
+      <action name="createElection" class="eVoting.action.EleicaoAction" method="execute">
+          <result name="success">/index.jsp</result>
+          <result name="error">/error.jsp</result>
+      </action>
+
+      <action name="changeElection" class="eVoting.action.ChangeElectionAction" method="execute">
+          <result name="success">/index.jsp</result>
+          <result name="error">/error.jsp</result>
+      </action>
+
 
   </package>
 
