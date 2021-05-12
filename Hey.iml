@@ -27,6 +27,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
+          <factory-entry name="Hey" />
           <factory-entry name="default" />
         </datasource-mapping>
         <naming-strategy-map />
@@ -43,12 +44,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib2" level="project" />
-    <orderEntry type="library" name="lib3" level="project" />
-    <orderEntry type="library" name="lib1" level="project" />
     <orderEntry type="library" name="asm-commons-3.3" level="project" />
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.struts:struts2-core:2.5.14.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.6" level="project" />
   </component>
 </module>

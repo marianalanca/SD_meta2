@@ -40,17 +40,7 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
         <result name="error">/error.jsp</result>
     </action>
 
-      <action name="changeVoter" class="eVoting.action.ChangeVoterAction" method="execute">
-          <result name="success">/index.jsp</result>
-          <result name="error">/error.jsp</result>
-      </action>
-
       <action name="createElection" class="eVoting.action.EleicaoAction" method="execute">
-          <result name="success">/index.jsp</result>
-          <result name="error">/error.jsp</result>
-      </action>
-
-      <action name="changeElection" class="eVoting.action.ChangeElectionAction" method="execute">
           <result name="success">/index.jsp</result>
           <result name="error">/error.jsp</result>
       </action>
