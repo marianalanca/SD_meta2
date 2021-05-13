@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="rmiserver3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/Hey/main/java/eVoting/rmiserver/RMIServer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Hey/main/java/eVoting/rmiserver/MulticastServer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Hey/main/java/eVoting/rmiserver/realtime.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Hey/main/java/eVoting/rmiserver/AdminConsole.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Hey/main/java/eVoting/rmiserver/MulticastClient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

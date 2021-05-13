@@ -8,7 +8,7 @@
 
     <h1>Create Election</h1>
 
-    <s:form action = "register" method = "execute">
+    <s:form action = "createElection" method = "execute">
         <s:text name="Election's name:" />
         <s:textfield name="title" /><br>
         <s:text name="Role:" />
