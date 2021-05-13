@@ -2,6 +2,7 @@ package eVoting.action;
 
 import eVoting.model.EleicaoBean;
 import com.opensymphony.xwork2.ActionSupport;
+import eVoting.rmiserver.Election;
 import org.apache.struts2.interceptor.SessionAware;
 import eVoting.rmiserver.Type;
 
@@ -72,7 +73,37 @@ public class EleicaoAction extends ActionSupport implements SessionAware {
     }
 
 
+    public String voterVotesAdmin() throws RemoteException{
+        if(title != null && username != null && candidateName != null) {
+            getEleicaoBean().setTitle(title);
+            getEleicaoBean().setUsername(username);
+            getEleicaoBean().setCandidateName(candidateName);
+            getEleicaoBean().setCandidateName(candidateName);
+            if (getEleicaoBean().earlyVote()) {
+                session.put("title", title);
+                session.put("title", title);
+                session.put("candidate", candidateName);
+                session.put("username", username);
+                session.put("voted", true);
+                return SUCCESS;
+            }
 
+        }
+        return ERROR;
+    }
+
+
+    public String changeInfo() throws RemoteException{
+        if(title != null && department != null && description != null && beggDate != null && endDate != null && allowedVoters != null && !allowedVoters.isEmpty()){
+            getEleicaoBean().setElection(new Election(title,description,beggDate, endDate,department,allowedVoters));
+            if(getEleicaoBean().changeElection()){
+                session.put("title",title);
+                session.put("change",true);
+                return SUCCESS;
+            }
+        }
+        return  ERROR;
+    }
 
     public EleicaoBean getEleicaoBean(){
         if(!session.containsKey("eleicaoBean"))

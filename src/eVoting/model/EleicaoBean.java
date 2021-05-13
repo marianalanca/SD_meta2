@@ -1,5 +1,6 @@
 package eVoting.model;
 
+import eVoting.rmiserver.Election;
 import eVoting.rmiserver.Type;
 
 import java.rmi.RemoteException;
@@ -17,6 +18,8 @@ public class EleicaoBean extends RMIConnectBean {
 
     private String username;
     private String candidateName;
+    private Election election;
+
 
     private  String local;
 
@@ -60,6 +63,7 @@ public class EleicaoBean extends RMIConnectBean {
         return local;
     }
 
+    public Election getElection(){return election;}
     public boolean createElection() throws RemoteException {
         return getRmiServer_i().createElection(title,description,beggDate,endDate,department,allowedVoters);
     }
@@ -68,8 +72,15 @@ public class EleicaoBean extends RMIConnectBean {
         this.local = local;
     }
 
+    public boolean earlyVote() throws RemoteException{
+        return getRmiServer_i().voterVotesAdmin(username, title,candidateName,local);
+    }
+
     public boolean voterVotes() throws RemoteException{
         return getRmiServer_i().voterVotes(username,title,candidateName,local);
+    }
+    public boolean changeElection() throws RemoteException{
+        return getRmiServer_i().switchElection(title,election);
     }
 
     public void setTitle(String title) {
@@ -104,5 +115,7 @@ public class EleicaoBean extends RMIConnectBean {
         this.candidateName = candidateName;
     }
 
-
+    public void setElection(Election election) {
+        this.election = election;
+    }
 }
